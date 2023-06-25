@@ -96,4 +96,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 0
   y: 0
+  magType: 2
   links: []
+  magsprite: {fileID: 4389613657797053339}

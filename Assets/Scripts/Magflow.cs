@@ -2,23 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Link: Normal, conducts power
+/// Provide: Yellow, power provider
+/// Receive: Red, all edges must receive power
+/// </summary>
+public enum MagType
+{
+    RECEIVE,
+    PROVIDE,
+    LINK
+}
+
 public class Magflow : MonoBehaviour
 {
+    [Header("Gameplay")]
     [SerializeField] private int x;
     [SerializeField] private int y;
 
+    [SerializeField] private MagType magType;
     [SerializeField] private List<GameObject> links;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Display")]
+    [SerializeField] private SpriteRenderer magsprite;
 
-    // Update is called once per frame
-    void Update()
+    public void Setup(int x, int y, MagType magType, Sprite magSprite)
     {
-        
+        this.x = x;
+        this.y = y;
+        this.magType = magType;
+        magsprite.sprite = magSprite;
     }
 
     /// <summary>

@@ -16,6 +16,7 @@ public class MagflowGen : MonoBehaviour
 
     [Header("Dependencies")]
     [SerializeField] private GameObject magFolder;
+    [SerializeField] private List<Sprite> magSprites;
 
     [Header("Ingame")]
     [SerializeField] private List<Magflow> magActiveList;
@@ -39,9 +40,12 @@ public class MagflowGen : MonoBehaviour
         {
             CreateMag(x, y);
         }
+
+        CreateMag(0, -2, MagType.RECEIVE);
+        CreateMag(-1, 2, MagType.PROVIDE);
     }
 
-    private void CreateMag(int x, int y)
+    private void CreateMag(int x, int y, MagType magType = MagType.LINK)
     {
         GameObject newMag = Instantiate(magPrefab);
 
@@ -56,11 +60,33 @@ public class MagflowGen : MonoBehaviour
 
         newMag.transform.SetParent(magFolder.transform);
 
+        Sprite sprite = magSprites[0];
+        switch (magType)
+        {
+            case MagType.RECEIVE:
+                sprite = magSprites[2];
+                break;
+            case MagType.PROVIDE:
+                sprite = magSprites[1];
+                break;
+        }
+
+
         Magflow magComp = newMag.GetComponent<Magflow>();
+        magComp.Setup(x, y, magType, sprite);
+
         magActiveList.Add(magComp);
     }
 
     private void AddLink()
+    {
+
+    }
+
+    /// <summary>
+    /// Evaluate conditions of the board, whether it has succeeded or not, etc, and update power lines
+    /// </summary>
+    public void EvaluatePower()
     {
 
     }

@@ -334,6 +334,10 @@ MonoBehaviour:
   magPrefab: {fileID: 4389613657797053337, guid: bfb5edb7e57b1f6438a9ac56bd7038c6,
     type: 3}
   magFolder: {fileID: 550589190}
+  magSprites:
+  - {fileID: 21300000, guid: a11d21577e99fdc49828ca4b7e79d671, type: 3}
+  - {fileID: 21300000, guid: 1bb64fd88f198dd4784c4724a5fd3a59, type: 3}
+  - {fileID: 21300000, guid: 077c9b4a948890346bd315e3e6284a5a, type: 3}
   magActiveList: []
 --- !u!4 &1243048378
 Transform:
