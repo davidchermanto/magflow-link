@@ -35,10 +35,29 @@ public class Magflow : MonoBehaviour
     }
 
     /// <summary>
-    /// Rotates the magflow clockwise. After this happens, update the links
+    /// Rotates the magflow clockwise 60 degs. After this happens, update the links
     /// </summary>
     public void Rotate()
     {
 
+        StartCoroutine(RotateRoutine());
+    }
+
+    private IEnumerator RotateRoutine()
+    {
+        float targ = ((int)(transform.localEulerAngles.z / 60) * 60f + 60);
+        float curr = transform.localEulerAngles.z;
+        float duration = 0.15f;
+        float currtime = 0;
+
+        while (currtime < duration)
+        {
+            currtime += Time.deltaTime;
+            float angle = Mathf.Lerp(curr, targ, currtime / duration);
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+            yield return new WaitForEndOfFrame();
+        }
+
+        transform.rotation = Quaternion.Euler(0, 0, targ);
     }
 }

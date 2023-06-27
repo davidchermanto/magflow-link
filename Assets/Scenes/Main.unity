@@ -308,6 +308,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1243048378}
   - component: {fileID: 1243048377}
+  - component: {fileID: 1243048379}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -353,6 +354,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1243048379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243048376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88798d779fcaeb4f81f968b69d66e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1549418995
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,7 +437,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -50
   m_Sprite: {fileID: 21300000, guid: 74ec1f80394bcfb468e2888a608e3ee5, type: 3}
-  m_Color: {r: 0.122641504, g: 0.11685653, b: 0.11685653, a: 1}
+  m_Color: {r: 0.047169805, g: 0.044944815, b: 0.044944815, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
