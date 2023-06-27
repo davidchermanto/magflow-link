@@ -33,7 +33,10 @@ public class MagflowGen : MonoBehaviour
             (0, 1),
             (0, 2),
             (1, 1),
-            (-1, 0)
+            (1, 2),
+            (-1, 0),
+            (-1, 1),
+            (-1, -1)
         };
 
         foreach ((int x, int y) in debugTest)
@@ -42,6 +45,7 @@ public class MagflowGen : MonoBehaviour
         }
 
         CreateMag(0, -2, MagType.RECEIVE);
+        CreateMag(2, 1, MagType.RECEIVE);
         CreateMag(-1, 2, MagType.PROVIDE);
     }
 
@@ -49,7 +53,7 @@ public class MagflowGen : MonoBehaviour
     {
         GameObject newMag = Instantiate(magPrefab);
 
-        if(y % 2 == 1)
+        if(Mathf.Abs(y) % 2 == 1)
         {
             newMag.transform.position = new Vector3(startX + (x - 0.5f) * offsetX, startY + y * offsetY);
         }

@@ -26,6 +26,8 @@ public class Magflow : MonoBehaviour
     [Header("Display")]
     [SerializeField] private SpriteRenderer magsprite;
 
+    private bool spinning;
+
     public void Setup(int x, int y, MagType magType, Sprite magSprite)
     {
         this.x = x;
@@ -39,12 +41,16 @@ public class Magflow : MonoBehaviour
     /// </summary>
     public void Rotate()
     {
-
-        StartCoroutine(RotateRoutine());
+        if(magType == MagType.LINK && !spinning)
+        {
+            StartCoroutine(RotateRoutine());
+        }
     }
 
     private IEnumerator RotateRoutine()
     {
+        spinning = true;
+
         float targ = ((int)(transform.localEulerAngles.z / 60) * 60f + 60);
         float curr = transform.localEulerAngles.z;
         float duration = 0.15f;
@@ -59,5 +65,6 @@ public class Magflow : MonoBehaviour
         }
 
         transform.rotation = Quaternion.Euler(0, 0, targ);
+        spinning = false;
     }
 }
