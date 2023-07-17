@@ -2,6 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum LinkDirection
+{
+    TOP,
+    TOPRIGHT,
+    BOTTOMRIGHT,
+    BOTTOM,
+    BOTTOMLEFT,
+    TOPLEFT
+}
+
 public class MagflowGen : MonoBehaviour
 {
     [Header("Position Constants")]
@@ -82,7 +92,13 @@ public class MagflowGen : MonoBehaviour
         magActiveList.Add(magComp);
     }
 
-    private void AddLink()
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <param name="linkDirection"></param>
+    private void AddLink(int x, int y, LinkDirection linkDirection)
     {
 
     }

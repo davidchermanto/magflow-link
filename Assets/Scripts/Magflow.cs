@@ -21,7 +21,7 @@ public class Magflow : MonoBehaviour
     [SerializeField] private int y;
 
     [SerializeField] private MagType magType;
-    [SerializeField] private List<GameObject> links;
+    [SerializeField] private List<LinkDirection> links;
 
     [Header("Display")]
     [SerializeField] private SpriteRenderer magsprite;
@@ -34,6 +34,14 @@ public class Magflow : MonoBehaviour
         this.y = y;
         this.magType = magType;
         magsprite.sprite = magSprite;
+    }
+
+    public void AddLink(LinkDirection link)
+    {
+        if (!links.Contains(link))
+        {
+            links.Add(link);
+        }
     }
 
     /// <summary>
