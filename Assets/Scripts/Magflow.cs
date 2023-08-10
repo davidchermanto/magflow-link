@@ -59,7 +59,7 @@ public class Magflow : MonoBehaviour
     {
         spinning = true;
 
-        float targ = ((int)(transform.localEulerAngles.z / 60) * 60f + 60);
+        float targ = ((int)(transform.localEulerAngles.z / 60) * 60f - 60);
         float curr = transform.localEulerAngles.z;
         float duration = 0.15f;
         float currtime = 0;
