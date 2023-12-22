@@ -25,17 +25,33 @@ public class Magflow : MonoBehaviour
 
     [Header("Display")]
     [SerializeField] private List<Sprite> magsprites;
+    [SerializeField] private List<Sprite> linkSprites;
+
     [SerializeField] private SpriteRenderer magsprite;
+    [SerializeField] private List<SpriteRenderer> linkObjects;
 
     private bool spinning;
 
-    public void Setup(int x, int y, MagType magType, List<Sprite> magSprites)
+    public void Setup(int x, int y, MagType magType, List<Sprite> magSprites, List<LinkDirection> links = null, GameObject linkPrefab = null,
+        List<Sprite> linkSprites = null)
     {
         this.x = x;
         this.y = y;
         this.magType = magType;
         magsprites = magSprites;
         magsprite.sprite = magSprites[0];
+
+        if(magType == MagType.LINK)
+        {
+            this.links = links;
+            this.linkSprites = linkSprites;
+
+            foreach(LinkDirection linkDirection in links)
+            {
+
+            }
+
+        }
     }
 
     public void AddLink(LinkDirection link)
@@ -60,6 +76,11 @@ public class Magflow : MonoBehaviour
         {
             StartCoroutine(RotateRoutine());
         }
+    }
+
+    private void UpdateLinks()
+    {
+
     }
 
     private IEnumerator RotateRoutine()

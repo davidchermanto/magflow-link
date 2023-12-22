@@ -23,10 +23,12 @@ public class MagflowGen : MonoBehaviour
 
     [Header("Prefabs")]
     [SerializeField] private GameObject magPrefab;
+    [SerializeField] private GameObject linkPrefab;
 
     [Header("Dependencies")]
     [SerializeField] private GameObject magFolder;
     [SerializeField] private List<Sprite> magSprites;
+    [SerializeField] private List<Sprite> linkSprites;
 
     [Header("Ingame")]
     [SerializeField] private List<Magflow> magActiveList;
@@ -64,7 +66,7 @@ public class MagflowGen : MonoBehaviour
         CreateMag(-1, 2, MagType.PROVIDE);
     }
 
-    private void CreateMag(int x, int y, MagType magType = MagType.LINK)
+    private void CreateMag(int x, int y, MagType magType = MagType.LINK, List<LinkDirection> links = null)
     {
         GameObject newMag = Instantiate(magPrefab);
 
@@ -90,9 +92,16 @@ public class MagflowGen : MonoBehaviour
                 break;
         }
 
-
         Magflow magComp = newMag.GetComponent<Magflow>();
-        magComp.Setup(x, y, magType, new List<Sprite> { sprite, magSprites[3]});
+
+        if(magType == MagType.LINK)
+        {
+            magComp.Setup(x, y, magType, new List<Sprite> { sprite, magSprites[3]});
+        }
+        else
+        {
+            magComp.Setup(x, y, magType, new List<Sprite> { sprite, magSprites[3]});
+        }
 
         magActiveList.Add(magComp);
     }
