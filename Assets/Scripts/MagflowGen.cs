@@ -37,6 +37,11 @@ public class MagflowGen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug();
+    }
+
+    private void Debug()
+    {
         debugTest = new List<(int, int)>
         {
             (0, 0),
@@ -87,7 +92,7 @@ public class MagflowGen : MonoBehaviour
 
 
         Magflow magComp = newMag.GetComponent<Magflow>();
-        magComp.Setup(x, y, magType, sprite);
+        magComp.Setup(x, y, magType, new List<Sprite> { sprite, magSprites[3]});
 
         magActiveList.Add(magComp);
     }

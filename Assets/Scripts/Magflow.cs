@@ -24,16 +24,18 @@ public class Magflow : MonoBehaviour
     [SerializeField] private List<LinkDirection> links;
 
     [Header("Display")]
+    [SerializeField] private List<Sprite> magsprites;
     [SerializeField] private SpriteRenderer magsprite;
 
     private bool spinning;
 
-    public void Setup(int x, int y, MagType magType, Sprite magSprite)
+    public void Setup(int x, int y, MagType magType, List<Sprite> magSprites)
     {
         this.x = x;
         this.y = y;
         this.magType = magType;
-        magsprite.sprite = magSprite;
+        magsprites = magSprites;
+        magsprite.sprite = magSprites[0];
     }
 
     public void AddLink(LinkDirection link)
@@ -42,6 +44,11 @@ public class Magflow : MonoBehaviour
         {
             links.Add(link);
         }
+    }
+
+    public void Lit()
+    {
+        magsprite.sprite = magsprites[1];
     }
 
     /// <summary>

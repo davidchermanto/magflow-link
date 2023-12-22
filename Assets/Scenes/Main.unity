@@ -339,6 +339,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a11d21577e99fdc49828ca4b7e79d671, type: 3}
   - {fileID: 21300000, guid: 1bb64fd88f198dd4784c4724a5fd3a59, type: 3}
   - {fileID: 21300000, guid: 077c9b4a948890346bd315e3e6284a5a, type: 3}
+  - {fileID: 21300000, guid: 0d5a620d85ffb29448a2b408e34e8760, type: 3}
   magActiveList: []
 --- !u!4 &1243048378
 Transform:
